@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>회원가입 페이지</title>
+</head>
+<body>
+<h1>회원가입 페이지</h1>
+<hr/>
+<form action="/joinProc" method="post">
+	<input type="text" name="username" placeholder="username"/> <br/>
+	<input type="password" name="password" placeholder="password"/> <br/>
+	<input type="email" name="email" placeholder="email"/> <br/>
+	<input type="radio" name="role" value="ROLE_USER" checked>ROLE_USER
+	<input type="radio" name="role" value="ROLE_ADMIN">ROLE_ADMIN
+	<br/>
+	<button>회원가입</button>
+</form>
+<a href="/login">로그인</a>
+</body>
+</html>

@@ -1,6 +1,5 @@
-package com.example.todayIsKotlin.user.repository
+package com.example.todayIsKotlin.user.infrastucture
 
-import com.example.todayIsKotlin.user.model.User
 import org.springframework.data.jpa.repository.JpaRepository
 
 // JpaRepository 를 상속하면 자동 컴포넌트 스캔됨.

@@ -1,6 +1,6 @@
 package com.example.todayIsKotlin.config.auth
 
-import com.example.todayIsKotlin.user.model.User
+import com.example.todayIsKotlin.user.infrastucture.User
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import java.util.*

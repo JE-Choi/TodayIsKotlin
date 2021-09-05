@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>로그인 페이지</title>
+	<link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&family=Rampart+One&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/login/login.css}">
+</head>
+<body>
+<div id="container">
+	<section id="loginSection">
+		<div>
+			<header>
+				<h3>Login</h3>
+				<div th:if="${param.error}">
+					😫로그인이 실패: 계정과 비밀번호 확인 필요😫
+				</div>
+				<hr/>
+			</header>
+			<article>
+				<!-- 시큐리티는 x-www-form-url-encoded 타입만 인식 -->
+				<form action="/loginProc" method="post">
+					<input type="text" name="username" placeholder="username"/> <br/>
+					<input type="password" name="password" /> <br/>
+					<button>로그인</button>
+				</form>
+				<a href="/signUp">회원가입</a>
+			</article>
+		</div>
+	</section>
+</div>
+</body>
+</html>

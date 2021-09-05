@@ -25,15 +25,24 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
         }
         http.csrf().disable()
         http.authorizeRequests() // 인가
-                .antMatchers("/user/**").authenticated() // 인증필요
-                .antMatchers("/logout/**").authenticated()
-                .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/home/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
-                .anyRequest().permitAll()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/loginProc")
-                .defaultSuccessUrl("/")
+            .antMatchers("/user/**").authenticated() // 인증필요
+            .antMatchers("/logout/**").authenticated()
+            .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
+//            .antMatchers("/home/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+            .anyRequest().permitAll()
+            .and()
+            .formLogin()
+            .loginPage("/login")
+            .loginProcessingUrl("/loginProc")
+            .defaultSuccessUrl("/")
+            .failureUrl("/login?error")
+            .and()
+            .logout() // 로그아웃
+            .logoutSuccessUrl("/")
+            .deleteCookies("JSESSIONID")
+            .invalidateHttpSession(true)
+
+        //세션 관리 → 현재 맥시멈을 1개로 두어, 동시로그인이 불가능하게함
+        http.sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(true)
     }
 }

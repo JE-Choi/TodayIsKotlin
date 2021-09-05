@@ -7,6 +7,9 @@
 <body>
 <h1>회원가입 페이지</h1>
 <hr/>
+<div th:if="${param.isExists}">
+	😫중복계정😫
+</div>
 <form action="/joinProc" method="post">
 	<input type="text" name="username" placeholder="username"/> <br/>
 	<input type="password" name="password" placeholder="password"/> <br/>
